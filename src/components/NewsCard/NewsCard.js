@@ -1,4 +1,5 @@
 import React from 'react';
+import useStyles from './styles.js';
 import {
   Card,
   CardActions,
@@ -8,6 +9,7 @@ import {
   Button,
   Typography,
 } from '@material-ui/core';
+
 const NewsCard = ({
   article: {
     description,
@@ -20,17 +22,23 @@ const NewsCard = ({
   },
   i,
 }) => {
+  const classes = useStyles();
   return (
-    <Card>
-      <CardActionArea>
+    <Card className={classes.card}>
+      <CardActionArea href={url} target="_blank">
         <CardMedia
+          className={classes.media}
           image={
             urlToImage ||
             'https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png'
           }
         />
-        <div>
-          <Typography variant="body2" color="textSecondary" component="h2">
+        <div className={classes.details}>
+          <Typography
+            className={classes.title}
+            variant="body2"
+            color="textSecondary"
+            component="h2">
             {new Date(publishedAt).toDateString()}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="h2">
@@ -40,13 +48,13 @@ const NewsCard = ({
         <Typography gutterBottom variant="h5">
           {title}
         </Typography>
-        <CardContent>
+        <CardContent className={classes.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             {description}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.cardactions}>
         <Button size="small" color="primary">
           Learn More
         </Button>
