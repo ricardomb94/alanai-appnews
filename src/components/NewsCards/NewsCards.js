@@ -1,4 +1,3 @@
-import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 import { Grid, Grow, Typography } from '@material-ui/core';
 import useStyles from './styles.js';
@@ -26,7 +25,7 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles }) => {
+const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
 
   if (!articles.length) {
@@ -86,7 +85,7 @@ const NewsCards = ({ articles }) => {
             lg={3}
             key={i}
             style={{ display: 'flex' }}>
-            <NewsCard article={article} i={i} />
+            <NewsCard article={article} activeArticle={activeArticle} i={i} />
           </Grid>
         ))}
       </Grid>
