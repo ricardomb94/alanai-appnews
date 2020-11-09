@@ -5,8 +5,7 @@ import NewsCards from './components/NewsCards/NewsCards';
 import wordsToNumbers from 'words-to-numbers';
 
 //we declare the alan API key as a variable
-const alankey =
-  'fb41afe211119f525dad6c4faef5e89d2e956eca572e1d8b807a3e2338fdd0dc/stage';
+const alankey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
